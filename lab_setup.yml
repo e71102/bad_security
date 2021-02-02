@@ -1,0 +1,12 @@
+---
+
+- hosts: all
+  become: yes
+  connection: local
+  tasks:
+  - name: install the collections needed
+    command: ansible-galaxy install -r requirements.yml
+
+- import_playbook: bad_security_practices.yml
+
+- import_playbook: update_git_config.yml
